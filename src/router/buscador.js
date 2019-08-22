@@ -1,14 +1,11 @@
 const router = require('express').Router();
 const pool = require('../database');
-const {IsLoggedIn, NotLoggedIn} = require('../autenticacion');
 
-//  --GET--  //
-
-//enviar alumno con ID
-router.get('/propagacion',async(req,res,next)=>{
+router.get('/Buscador',async(req,res,next)=>{
     const {idPropagacion} = req.params;
-    const propagaciones = await pool.query('SELECT * FROM Propagacion WHERE idPropagacion = ?',[idPropagacion]) //Acá va la consulta que va a hacer Guille
+    const propagaciones = await pool.query('SELECT CodPPRenglon, Fecha, Nombre, CodPPRenglon.Des FROM (CodPPRenglon JOIN CodItemPP ON (CodPPRenglon.CodItemPP = CodItemPP.IdItemPP)) WHERE (CodPP IN (SELECT IdPPropagacion FROM CodPPropagacion) AND CodPP = ?);',[idPropagacion]) //Acá va la consulta que va a hacer Guille
     .catch(err=> next(err));
+    res.send(propagaciones);
 });
 
 
