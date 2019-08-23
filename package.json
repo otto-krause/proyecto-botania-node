@@ -4,27 +4,18 @@
   "description": "El programita que muestra info del sistema de riego del botánico pero que en realidad nunca va a ser usado",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://otto-krause/proyecto-botania-node"
-  },
-  "keywords": [
-    "Botania",
-    "Botánico",
-    "Argentina",
-    "PaísGeneroso",
-    "BuenaGente",
-    "Node",
-    "Vue",
-    "Guille"
-  ],
-  "author": "Monozombi & Co.n't",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mysql": "^2.17.1",
-    "nodemon": "^1.19.1"
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.0"
   }
 }
