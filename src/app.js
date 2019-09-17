@@ -22,6 +22,7 @@ app.use(morgan('dev'));
 
 //Rutas
 app.use('/api/buscador',require('./router/buscador'));
+app.use('/api/buscador2',require('./router/buscador2'));
 app.use('/api/buscadorAvanzado/',require('./router/buscadorAvanzado'));
 
 //Inicializar servidor
