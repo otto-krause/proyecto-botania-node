@@ -12,7 +12,6 @@ router.get('/',async(req,res,next)=>{
                             FROM (
                                     SELECT IdPPropagacion, Objetivo, CodIngreso0, CodTecnico, CodAsistente
                                     FROM codppropagacion
-                                    /*WHERE FAltaTP BETWEEN aca salame and */
                                  ) AS propagacion
                             INNER JOIN (
                                           SELECT renglon.CodPP, (CAST(renglon.Fecha AS DATE)) AS Fecha, item.ItemCierre
@@ -23,7 +22,6 @@ router.get('/',async(req,res,next)=>{
                                           INNER JOIN (
                                                         SELECT idItemPP, ItemCierre
                                                         FROM CodItemPP
-                                                          WHERE ItemCierre = true /*Esto se codea si el tipo quiere ver todos o los en curso*/
                                                      ) AS item
                                           ON renglon.CodItemPP = item.idItemPP
                                        ) AS renglonItem
